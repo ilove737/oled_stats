@@ -1,0 +1,36 @@
+# OLED显示配置文件示例
+# 复制到 /etc/oled_stats.conf 使用
+
+[global]
+device = /dev/i2c-1
+refresh = 25
+invert = false
+
+# 显示器0配置 (I2C地址 0x3C)
+[display:0]
+addr = 0x3C
+enabled = true
+items = sysinfo
+
+# 显示器1配置 (I2C地址 0x3D)
+[display:1]
+addr = 0x3D
+enabled = true
+items = time, fans
+
+# 系统信息配置
+[item:sysinfo]
+type = sysinfo
+lines = ip, cpu, mem, disk
+
+# 时间显示配置
+[item:time]
+type = time
+format = %H:%M:%S
+position = 0, 0
+
+# B站粉丝配置
+[item:fans]
+type = fans
+vmid = 472537678
+position = 0, 20
